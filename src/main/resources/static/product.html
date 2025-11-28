@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Product Details / Add</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <a href="/">Back to Products</a>
+  </header>
+
+  <main>
+    <h2 id="pageTitle">Product</h2>
+
+    <div id="productDetail"></div>
+
+    <hr>
+
+    <h3 id="formTitle">Create / Edit Product</h3>
+    <form id="productForm">
+      <input type="hidden" id="productId" />
+      <label>Title: <input id="title" required /></label><br/>
+      <label>Price: <input id="price" type="number" step="0.01" required /></label><br/>
+      <label>Category: <input id="category" required /></label><br/>
+      <label>Description: <textarea id="description"></textarea></label><br/>
+      <label>Image URL: <input id="image" /></label><br/>
+      <button type="submit">Save</button>
+    </form>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
