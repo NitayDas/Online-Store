@@ -66,20 +66,21 @@ async function loadProductsPage() {
     const q = (searchInput.value || "").toLowerCase();
 
     const filtered = products.filter(p => (p.title || "").toLowerCase().includes(q));
-
     grid.innerHTML = filtered.map(p => `
-      <div class="card">
-        <img src="${p.image || ''}" alt="${(p.title||'')}">
-        <h3>${p.title}</h3>
-        <p><strong>$${p.price}</strong></p>
-        <p class="cat">${p.category || ''}</p>
-        <div>
-          <a href="/product.html?id=${p.id}">View</a>
-          ${canEdit() ? `<a href="/product.html?id=${p.id}&edit=true">Edit</a>` : ''}
-          ${canDelete() ? `<button onclick="deleteProduct(${p.id})">Delete</button>` : ''}
-        </div>
+    <div class="card">
+      <img src="${p.image || ''}" alt="${p.title || ''}">
+      <h3>${p.title}</h3>
+      <p><strong>$${p.price}</strong></p>
+      <p class="cat">${p.category || ''}</p>
+      <div class="card-actions">
+        <a href="/product.html?id=${p.id}" class="btn-view">View</a>
+        ${canEdit() ? `<a href="/product.html?id=${p.id}&edit=true" class="btn-edit">Edit</a>` : ''}
+        ${canDelete() ? `<button onclick="deleteProduct(${p.id})" class="btn-delete">Delete</button>` : ''}
       </div>
-    `).join('');
+    </div>
+  `).join('');
+
+
   }
 
   categorySelect?.addEventListener("change", fetchAndRender);

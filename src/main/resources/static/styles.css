@@ -79,34 +79,97 @@ header button:hover {
   gap: 18px;
 }
 
-/* Product Card */
+/* Card uniform layout */
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* buttons at bottom */
   border: 1px solid #ddd;
   padding: 12px;
   border-radius: 10px;
   background: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  height: 100%; /* full height to match other cards */
+  padding-bottom: 30px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 16px rgba(0,0,0,0.12);
-}
-
+/* Card image fixed size */
 .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
+  width: 90%;
+  height: 180px; /* uniform image height */
+  object-fit: cover;
   background: #f9f9f9;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* Buttons */
+/* Card text content */
+.card h3,
+.card p {
+  margin: 4px 0;
+  flex-shrink: 0;
+}
+
+/* Card actions aligned */
+.card-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start;
+  margin-top: auto; /* push buttons to bottom */
+  margin-bottom: 4px;
+}
+
+/* Card Action Buttons */
+.card-actions a,
+.card-actions button {
+  flex: 1;
+  display: inline-block;
+  margin-right: 8px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* View button */
+.card-actions .btn-view {
+  background-color: #1d8348;
+  color: white;
+}
+
+.card-actions .btn-view:hover {
+  background-color: #166738;
+}
+
+/* Edit button */
+.card-actions .btn-edit {
+  background-color: #4299e1;
+  color: white;
+}
+
+.card-actions .btn-edit:hover {
+  background-color: #2b6cb0;
+}
+
+/* Delete button */
+.card-actions .btn-delete {
+  background-color: #da4369;
+  color: white;
+  border: none;
+}
+
+.card-actions .btn-delete:hover {
+  background-color: #c9302c;
+}
+
+/* Buttons (generic) */
 button {
   padding: 2px 2px;
-  background: #e9033d;
+  background: #da4369;
   color: white;
   border-radius: 4px;
   border: none;
@@ -116,7 +179,7 @@ button {
 }
 
 button:hover {
-  background: #166938;
+  background: hwb(345 4% 13%);
 }
 
 /* Auth Forms */
