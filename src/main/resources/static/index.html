@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <h1>Online Storefront</h1>
     <nav>
@@ -17,10 +19,11 @@
     </nav>
   </header>
 
+  <!-- Main -->
   <main>
     <section class="filters">
       <label>Filter by category:
-        <select id="categorySelect">
+        <select id="categorySelect" class="input">
           <option value="">All</option>
           <option value="electronics">electronics</option>
           <option value="jewelery">jewelery</option>
@@ -28,13 +31,19 @@
           <option value="women's clothing">women's clothing</option>
         </select>
       </label>
+
       <label>Search:
-        <input id="searchInput" placeholder="search title..." />
+        <input id="searchInput" class="input" placeholder="search title..." />
       </label>
     </section>
 
     <section id="productGrid" class="grid"></section>
   </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Online Storefront — All Rights Reserved.</p>
+  </footer>
 
   <script src="/app.js"></script>
 </body>

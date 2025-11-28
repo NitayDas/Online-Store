@@ -1,9 +1,158 @@
-body { font-family: Arial, sans-serif; padding: 16px; }
-header { display:flex; justify-content:space-between; align-items:center; margin-bottom: 16px; }
-nav a { margin-right: 10px; }
-.grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 12px; }
-.card { border: 1px solid #ddd; padding: 8px; border-radius:6px; background:#fff; }
-.card img { width:100%; height:160px; object-fit:contain; background:#fafafa; }
-button { padding:6px 10px; }
-.filters { margin-bottom: 12px; }
-.auth { border:1px solid #eee; padding: 12px; margin-bottom: 12px; border-radius:6px; }
+/* Global */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: #f4f7f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1d8348;
+  padding: 14px 20px;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header nav a {
+  margin-right: 14px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+header button {
+  background: #d9534f;
+  border: none;
+  padding: 6px 14px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+header button:hover {
+  background: #c9302c;
+}
+
+/* Filters */
+.filters {
+  margin-bottom: 18px;
+  background: white;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.filters select,
+.filters input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: #1d8348;
+  outline: none;
+  box-shadow: 0 0 4px rgba(29,131,72,0.5);
+}
+
+/* Product Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+/* Product Card */
+.card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  padding: 2px 2px;
+  background: #e9033d;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  width: 30%;
+}
+
+button:hover {
+  background: #166938;
+}
+
+/* Auth Forms */
+.auth {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: white;
+  max-width: 420px;
+  margin: auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.auth h2 {
+  margin-bottom: 12px;
+  text-align: center;
+  color: #1d8348;
+}
+
+.auth label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.auth input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth input:focus {
+  border-color: #1d8348;
+  box-shadow: 0 0 4px rgba(29,131,72,0.5);
+  outline: none;
+}

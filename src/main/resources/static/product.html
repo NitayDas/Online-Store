@@ -1,31 +1,186 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Product Details / Add</title>
-  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* General reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: #1f2937; /* gray-800 */
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background-color: #047857; /* green-700 */
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #065f46; /* green-800 */
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #047857; /* green-700 */
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    #productDetail {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.25rem;
+      background-color: #f9fafb;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    form > div {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.25rem;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #10b981; /* green-500 */
+      box-shadow: 0 0 0 2px rgba(16,185,129,0.3);
+    }
+
+    button {
+      background-color: #059669; /* green-600 */
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #047857; /* green-700 */
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <a href="/">Back to Products</a>
+    <a href="/">&larr; Back to Products</a>
   </header>
 
+  <!-- Main Content -->
   <main>
-    <h2 id="pageTitle">Product</h2>
+    
+    <!-- Page Title -->
+    <h2 id="pageTitle">Product Details</h2>
 
-    <div id="productDetail"></div>
+    <!-- Product Detail -->
+    <div id="productDetail">
+      <p>No product selected.</p>
+    </div>
 
     <hr>
 
+    <!-- Form Title -->
     <h3 id="formTitle">Create / Edit Product</h3>
+
+    <!-- Product Form -->
     <form id="productForm">
       <input type="hidden" id="productId" />
-      <label>Title: <input id="title" required /></label><br/>
-      <label>Price: <input id="price" type="number" step="0.01" required /></label><br/>
-      <label>Category: <input id="category" required /></label><br/>
-      <label>Description: <textarea id="description"></textarea></label><br/>
-      <label>Image URL: <input id="image" /></label><br/>
-      <button type="submit">Save</button>
+
+      <div>
+        <label for="title">Title:</label>
+        <input id="title" type="text" required />
+      </div>
+
+      <div>
+        <label for="price">Price:</label>
+        <input id="price" type="number" step="0.01" required />
+      </div>
+
+      <div>
+        <label for="category">Category:</label>
+        <input id="category" type="text" required />
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" rows="4"></textarea>
+      </div>
+
+      <div>
+        <label for="image">Image URL:</label>
+        <input id="image" type="text" />
+      </div>
+
+      <button type="submit">Save Product</button>
     </form>
   </main>
 

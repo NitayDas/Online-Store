@@ -155,38 +155,41 @@ function initProductForm() {
     formTitle.textContent = "Create new product (admin/manager only)";
   }
 
-  const form = document.getElementById("productForm");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const product = {
-      title: document.getElementById("title").value,
-      price: parseFloat(document.getElementById("price").value),
-      category: document.getElementById("category").value,
-      description: document.getElementById("description").value,
-      image: document.getElementById("image").value
-    };
-    const headers = getAuthHeaders();
-    const pid = document.getElementById("productId").value;
-    if (pid) {
-      // update
-      const res = await fetch(`/products/${pid}`, { method: "PUT", headers, body: JSON.stringify(product) });
-      if (res.ok) {
-        alert("Updated.");
-        location.href = "/";
+
+    if(edit){
+    const form = document.getElementById("productForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const product = {
+        title: document.getElementById("title").value,
+        price: parseFloat(document.getElementById("price").value),
+        category: document.getElementById("category").value,
+        description: document.getElementById("description").value,
+        image: document.getElementById("image").value
+      };
+      const headers = getAuthHeaders();
+      const pid = document.getElementById("productId").value;
+      if (pid) {
+        // update
+        const res = await fetch(`/products/${pid}`, { method: "PUT", headers, body: JSON.stringify(product) });
+        if (res.ok) {
+          alert("Updated.");
+          location.href = "/";
+        } else {
+          alert("Failed to update (need ADMIN or MANAGER)");
+        }
       } else {
-        alert("Failed to update (need ADMIN or MANAGER)");
+        // create
+        const res = await fetch(`/products`, { method: "POST", headers, body: JSON.stringify(product) });
+        if (res.ok) {
+          alert("Created (fake).");
+          location.href = "/";
+        } else {
+          alert("Failed to create (need ADMIN or MANAGER)");
+        }
       }
-    } else {
-      // create
-      const res = await fetch(`/products`, { method: "POST", headers, body: JSON.stringify(product) });
-      if (res.ok) {
-        alert("Created (fake).");
-        location.href = "/";
-      } else {
-        alert("Failed to create (need ADMIN or MANAGER)");
-      }
-    }
-  });
+    });
+  }
 }
 
 // ---------------- Auth (login/register) ----------------
